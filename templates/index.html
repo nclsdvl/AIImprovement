@@ -26,7 +26,7 @@
   <form class="form-signin" method=post enctype=multipart/form-data>
     <img class="mb-4" src="/static/logo.png" alt="" width="72">
     <h1 class="h3 mb-3 font-weight-normal">Upload any image</h1>
-    <input type="file" name="file" class="form-control-file" id="inputfile" multiple="multiple" required accept=".jpg, .jpeg, .png">
+    <input type="file" name="file" class="form-control-file" id="inputfile" multiple required accept=".jpg, .jpeg, .png">
     <br />
     <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
     <p class="mt-5 mb-3 text-muted">Built using Pytorch, Flask</p>
@@ -58,12 +58,6 @@
         $("#inputfile").val(null);
         alert('only jpeg/jpg files are allowed!');
       }
-
-      var folder = "../resized/CXR";
-
-      console.log(folder)
-
-
     });
   </script>
 </body>

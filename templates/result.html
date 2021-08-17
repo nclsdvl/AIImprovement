@@ -28,14 +28,16 @@
   </head>
   <body margin="150px">
 
+
     <div class="text-center row col-md-12" id="result" flexWrap= "inherit">
       {% for category in respObj.keys()  %}
       
       
       <div class="col-md-2"><h1>{{ category }} </h1>
         {% for cate in respObj[category]  %}
+
         <div class="thumbnail img-thumbnail" width="150px">
-        <img src="{{ url_for('static', filename = 'multi/'+cate["file_name"]) }}" alt="">
+        <img src="{{ url_for('static', filename='' + cate["class_name"]+ '/'+ cate["file_name"]) }}" alt="{{cate["class_name"]}}">
         <div class="caption">
           <p>{{cate["file_name"] }}</p>
         </div>

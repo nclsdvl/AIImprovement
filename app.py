@@ -23,14 +23,12 @@ def home() :
 @app.route('/', methods=['POST'])
 def upload_file():
     if request.method == 'POST':
-        print(request.files)
+
 
         if 'file' not in request.files:
             print("redirection")
             return redirect(request.url)
-        classIds = []
-        classNames = []
-        filenames = []
+
         respObj = {}
         for uploaded_file in request.files.getlist('file'):
 
@@ -44,10 +42,11 @@ def upload_file():
                 class_id = tempClasse
 
             uploads_dir = os.path.join(app.static_folder, class_name)
+            print(uploads_dir)
             filename = secure_filename(file_name)
             uploaded_file.save(os.path.join(uploads_dir, filename))
             
-            print(class_name)
+
             if  class_name in respObj.keys() :
                 respObj[class_name].append({"class_id": class_id, "class_name": class_name, "file_name": file_name})
             else :
@@ -55,7 +54,7 @@ def upload_file():
                 respObj[class_name].append({"class_id": class_id, "class_name": class_name, "file_name": file_name})
 
 
-        print(respObj.keys())
+
         return render_template('result.html', respObj= respObj)
     
 
